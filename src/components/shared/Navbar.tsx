@@ -13,7 +13,7 @@ const Navbar = () => {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <a href="/" className="flex items-center">
-              <span className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
+              <span className="text-xl sm:text-2xl font-bold bg-linear-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">
                 AI PAY-LINK™
               </span>
             </a>
@@ -34,7 +34,7 @@ const Navbar = () => {
               </a>
               <a
                 href="/create"
-                className="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold hover:opacity-90 transition-opacity duration-200"
+                className="px-4 py-2 rounded-lg bg-linear-to-r from-blue-500 to-purple-500 text-white font-semibold hover:opacity-90 transition-opacity duration-200"
               >
                 Get Started
               </a>
@@ -84,7 +84,7 @@ const Navbar = () => {
               <a
                 href="/create"
                 onClick={() => setOpen(false)}
-                className="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-lg bg-gradient-to-r from-blue-500 to-purple-500 text-white font-semibold hover:opacity-90 transition-opacity duration-200"
+                className="flex items-center justify-center gap-2 w-full px-4 py-3 rounded-lg bg-linear-to-r from-blue-500 to-purple-500 text-white font-semibold hover:opacity-90 transition-opacity duration-200"
               >
                 Get Started
               </a>
