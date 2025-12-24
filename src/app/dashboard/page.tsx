@@ -3,8 +3,19 @@
 import DashboardHeader from "@/components/dashboard/DashboardHeader";
 import StatsCard from "@/components/dashboard/StatsCard";
 import PaymentsTable from "@/components/dashboard/PaymentsTable";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const Dashboard = () => {
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: "ease-out",
+    });
+  }, []);
+
   // Mock data for stats cards
   const stats = [
     {
@@ -60,23 +71,32 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        <DashboardHeader />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+        <div data-aos="fade-up">
+          <DashboardHeader />
+        </div>
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
           {stats.map((stat, index) => (
-            <StatsCard
+            <div
               key={index}
-              title={stat.title}
-              value={stat.value}
-              description={stat.description}
-            />
+              data-aos="fade-up"
+              data-aos-delay={100 + index * 100}
+            >
+              <StatsCard
+                title={stat.title}
+                value={stat.value}
+                description={stat.description}
+              />
+            </div>
           ))}
         </div>
 
         {/* Payments Table */}
-        <PaymentsTable payments={payments} />
+        <div data-aos="fade-up" data-aos-delay="400">
+          <PaymentsTable payments={payments} />
+        </div>
       </div>
     </div>
   );

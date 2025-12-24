@@ -2,18 +2,30 @@
 
 import PrimaryButton from "@/components/shared/PrimaryButton";
 import SecondaryButton from "@/components/shared/SecondaryButton";
+import PreviewModal from "@/components/shared/PreviewModal";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const CreatePage = () => {
   const [title, setTitle] = useState("");
   const [amount, setAmount] = useState("");
   const [description, setDescription] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    AOS.init({
+      duration: 800,
+      once: true,
+      easing: "ease-out",
+    });
+  }, []);
 
   const handleCreate = () => {
-    console.log("Creating payment link:", { title, amount, description });
+    setIsModalOpen(true);
   };
 
   const handleReset = () => {
@@ -24,24 +36,28 @@ const CreatePage = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <div className="max-w-4xl mx-auto px-6 py-12">
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold text-primary-foreground mb-2">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+        <div className="mb-6 sm:mb-8" data-aos="fade-up">
+          <h1 className="text-3xl sm:text-4xl font-bold text-primary-foreground mb-2">
             Create Payment Link
           </h1>
-          <p className="text-[#CECFD2]">
+          <p className="text-sm sm:text-base text-[#CECFD2]">
             Generate a new AI-powered payment link in seconds
           </p>
         </div>
 
-        <Card className="border-[#22262F] bg-background/50 backdrop-blur-xl">
+        <Card 
+          className="border-[#22262F] bg-background/50 backdrop-blur-xl"
+          data-aos="fade-up"
+          data-aos-delay="100"
+        >
           <CardHeader>
             <CardTitle className="text-xl text-primary-foreground">
               Payment Details
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-6">
-            <div className="space-y-2">
+            <div className="space-y-2" data-aos="fade-up" data-aos-delay="200">
               <Label htmlFor="title" className="text-[#CECFD2]">
                 Payment Title
               </Label>
@@ -50,11 +66,11 @@ const CreatePage = () => {
                 placeholder="Enter payment title"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                className="bg-background border-[#22262F] text-primary-foreground"
+                className="bg-transparent border-[#22262F] text-primary-foreground"
               />
             </div>
 
-            <div className="space-y-2">
+            <div className="space-y-2" data-aos="fade-up" data-aos-delay="300">
               <Label htmlFor="amount" className="text-[#CECFD2]">
                 Amount
               </Label>
@@ -64,11 +80,11 @@ const CreatePage = () => {
                 placeholder="0.00"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
-                className="bg-background border-[#22262F] text-primary-foreground"
+                className="bg-transparent border-[#22262F] text-primary-foreground"
               />
             </div>
 
-            <div className="space-y-2">
+            <div className="space-y-2" data-aos="fade-up" data-aos-delay="400">
               <Label htmlFor="description" className="text-[#CECFD2]">
                 Description (Optional)
               </Label>
@@ -77,11 +93,11 @@ const CreatePage = () => {
                 placeholder="Enter payment description"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
-                className="bg-background border-[#22262F] text-primary-foreground"
+                className="bg-transparent border-[#22262F] text-primary-foreground"
               />
             </div>
 
-            <div className="flex gap-4 pt-4">
+            <div className="flex flex-col md:flex-row gap-4 pt-4" data-aos="fade-up" data-aos-delay="500">
               <PrimaryButton onClick={handleCreate} className="flex-1">
                 Generate Payment Link
               </PrimaryButton>
@@ -91,29 +107,15 @@ const CreatePage = () => {
             </div>
           </CardContent>
         </Card>
-
-        {/* Preview Card */}
-        <Card className="border-[#22262F] bg-background/50 backdrop-blur-xl mt-8">
-          <CardHeader>
-            <CardTitle className="text-xl text-primary-foreground">
-              Link Preview
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="p-6 rounded-xl border border-[#22262F] bg-background">
-              <h3 className="text-lg font-semibold text-primary-foreground mb-2">
-                {title || "Payment Title"}
-              </h3>
-              <p className="text-3xl font-bold text-primary mb-4">
-                ${amount || "0.00"}
-              </p>
-              <p className="text-sm text-[#CECFD2]">
-                {description || "No description provided"}
-              </p>
-            </div>
-          </CardContent>
-        </Card>
       </div>
+
+      <PreviewModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        title={title}
+        amount={amount}
+        description={description}
+      />
     </div>
   );
 };

@@ -12,10 +12,10 @@ const Hero = ({
 }) => {
   return (
     <div className="w-full flex flex-col items-center justify-center relative">
-      <div className="absolute -top-5 -left-10 w-[240px] h-[240px] bg-primary rounded-full blur-3xl z-0 pointer-events-none" />
-      <div className="absolute -bottom-5 -right-10 w-[240px] h-[240px] bg-primary rounded-full blur-3xl z-0 pointer-events-none" />
+      <div className="absolute -top-8 -left-6 md:-left-10 w-40 h-40 md:w-60 md:h-60 bg-primary rounded-full blur-3xl z-0 pointer-events-none" />
+      <div className="absolute -bottom-8 -right-6 md:-right-10 w-40 h-40 md:w-60 md:h-60 bg-primary rounded-full blur-3xl z-0 pointer-events-none" />
 
-      <div className="w-full lg:py-[96px] py-[64px] px-4 md:px-6 flex flex-col items-center justify-center rounded-4xl border-2 border-primary relative z-10 overflow-hidden bg-background">
+      <div className="w-full lg:py-20 md:py-16 py-12 px-4 md:px-6 flex flex-col items-center justify-center rounded-4xl border-2 border-primary relative z-10 overflow-hidden bg-background">
         <Image
           src="/Home/hero-bg.svg"
           alt="Solana Memecoin Prop Trading Hero Background Animation"
@@ -27,8 +27,9 @@ const Hero = ({
         />
         <div className="w-full h-full flex flex-col items-center md:gap-8 gap-6 justify-center z-10">
           <Tag />
-          <h1 className="md:text-6xl text-5xl font-semibold text-primary-foreground tracking-tight text-center leading-[1.2]">
-            AI PAY-LINK™ — Smart Payment Links Powered by AI
+          <h1 className="md:text-5xl text-4xl font-semibold text-primary-foreground tracking-tight text-center leading-[1.15]">
+            <span className="block">AI PAY-LINK™ — Smart Payment Links</span>
+            <span className="block">Powered by AI</span>
           </h1>
           <p className="text-[#CECFD2] md:text-xl text-lg font-normal text-center tracking-tight md:w-[60%] w-full">
             Create intelligent payment links in seconds. Get paid faster with AI-powered payment solutions.
