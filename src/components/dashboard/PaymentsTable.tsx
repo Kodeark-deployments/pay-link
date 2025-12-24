@@ -39,7 +39,7 @@ const PaymentsTable = ({ payments }: PaymentsTableProps) => {
           <TableBody>
             {payments.map((payment) => (
               <TableRow key={payment.id}>
-                <TableCell className="text-xs sm:text-sm max-w-[150px] sm:max-w-none truncate">{payment.title}</TableCell>
+                <TableCell className="text-xs sm:text-sm max-w-37.5 sm:max-w-none truncate">{payment.title}</TableCell>
                 <TableCell className="font-semibold text-xs sm:text-sm whitespace-nowrap">{payment.amount}</TableCell>
                 <TableCell>
                   <span
