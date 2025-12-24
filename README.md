@@ -16,7 +16,7 @@ A professional, production-ready Next.js 14 payment link platform with dark-them
 
 | Layer | Technology |
 |-------|-----------|
-| **Framework** | Next.js 14 (App Router, SSR) |
+| **Framework** | Next.js (App Router, SSR) |
 | **Language** | TypeScript |
 | **Styling** | TailwindCSS + CSS Grid/Flexbox |
 | **UI Library** | shadcn/ui (Card, Input, Label, Button, Table) |
@@ -152,7 +152,7 @@ npm start
 
 ## 📦 Dependencies
 
-**Core**: Next.js 14, React 18, TypeScript  
+**Core**: Next.js, React 18, TypeScript  
 **UI**: TailwindCSS, shadcn/ui (@radix-ui components)  
 **Animations**: AOS v2.3.x (Animate On Scroll)  
 **Icons**: Lucide React  
